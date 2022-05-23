@@ -37,7 +37,7 @@
 mv|Benennt Datei um|mv altedatei neuedatei
 touch|Erstellt eine neue leere Datei| touch Dateiname
 cat|Gibt den Dateiinhalt aus|cat Zieldatei
-Datei-Inhaltes|wc -1 Zieldatei
+Datei-Inhaltes|wc -1 Zieldatei||
 wc|(word count) zählt Wörter oder Linien eines 
 echo|Gibt eine Zeichenkette aus|echo "Zeichenkette"
 
@@ -55,3 +55,11 @@ echo|Gibt eine Zeichenkette aus|echo "Zeichenkette"
 {..}|erzeugt einen Bereich|touch file{1..9}.txt
 |!|schliesst einen Ausdruck aus der Suche aus|ls file{!ausdruck}.txt|
 |{}|Verschachtelungen, Beispiel erzeugt die Files fileoriginal.txt, fileoriginal.bak, filekopie.txt und filekopie.baktouch| file{orginal{.bak,.txt},kopie{.bak,.txt}}|
+
+### Tilde expansion
+|Zeichen|Bedeutung|Beispiel|
+---|---|---|
+|~|Homeverzeichnis des aktiven Benutzers|~|
+|~Benutzername|Homeverzeichnis des Users||
+m~-|Zuvor besuchtes Verzeichnis||
+~+|gibt den Pfad an|
