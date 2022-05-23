@@ -12,3 +12,8 @@
 |#|leitet einen Kommentar ein||
 |\ |Lässt einen Befehl auf der nächsten Zeile weiterfahren||
 |&|Befehl wird im Hintergrund ausgeführt||
+|cd|ändert das Verzeichnis|cd ./bilder|
+|mkdir|erstellt ein neues Verzeichnis|mkdir Verzeichnisname|
+|rmdir|löscht ein bestehendes Verzeichnis, das Verzeichnis muss Leer sein|rmdir Verzeichnisname|
+|ls|Listet den Verzeichnisinhalt auf|ls Verzeichnisname|
+
