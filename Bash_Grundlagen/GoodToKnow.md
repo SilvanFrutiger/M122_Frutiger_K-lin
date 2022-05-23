@@ -1,4 +1,8 @@
-[Original Repository](https://gitlab.com/ch-tbz-it/Stud/m122/-/tree/main/02_Bash_Grundl)
+## [Original Repository](https://gitlab.com/ch-tbz-it/Stud/m122/-/tree/main/02_Bash_Grundl)
+
+---
+
+## Zeichen mit Bedeutung
 
 |Zeichen|Bedeutung|Beispiel|
 ---|---|---|
