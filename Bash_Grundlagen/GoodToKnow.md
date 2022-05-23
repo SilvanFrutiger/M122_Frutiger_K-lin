@@ -40,3 +40,18 @@ cat|Gibt den Dateiinhalt aus|cat Zieldatei
 Datei-Inhaltes|wc -1 Zieldatei
 wc|(word count) zählt Wörter oder Linien eines 
 echo|Gibt eine Zeichenkette aus|echo "Zeichenkette"
+
+### Dateirelevante Befehle
+|Zeichen|Bedeutung|Beispiel|
+---|---|---|
+|alias|erstellt einen Alias für einen Befehl|alias aliasname="Befehl"|
+
+### Wildcards und Brace extensions
+|Zeichen|Bedeutung|Beispiel|
+---|---|---|
+*|steht für belibig viele Zeichen|ls *.txt
+?|steht für ein belibiges Zeichen|ls file?.txt
+{,}|erzeugt File1.txt, File2.txt und File3.txt|touch File{1,2,3}.txt
+{..}|erzeugt einen Bereich|touch file{1..9}.txt
+|!|schliesst einen Ausdruck aus der Suche aus|ls file{!ausdruck}.txt|
+|{}|Verschachtelungen, Beispiel erzeugt die Files fileoriginal.txt, fileoriginal.bak, filekopie.txt und filekopie.baktouch| file{orginal{.bak,.txt},kopie{.bak,.txt}}|
