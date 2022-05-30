@@ -25,22 +25,21 @@
 |Zeichen|Bedeutung|Beispiel|
 ---|---|---|
 |cd|ändert das Verzeichnis|cd ./bilder|
-|mkdir|erstellt ein neues Verzeichnis|mkdir Verzeichnisname|
-|rmdir|löscht ein bestehendes Verzeichnis, das Verzeichnis muss Leer sein|rmdir Verzeichnisname|
-|ls|Listet den Verzeichnisinhalt auf|ls Verzeichnisname|
-|touch|neue Datei|touch Dateiname|
+|mkdir|erstellt ein neues Verzeichnis|mkdir \<Verzeichnisname>|
+|rmdir|löscht ein bestehendes Verzeichnis, das Verzeichnis muss Leer sein|rmdir \<Verzeichnisname>|
+|ls|Listet den Verzeichnisinhalt auf|ls \<Verzeichnisname>|
+|touch|neue Datei|touch \<Dateiname>|
 |touch|neue Datei|touch Dateiname|
 
 ### Dateirelevante Befehle
 |Zeichen|Bedeutung|Beispiel|
 ---|---|---|
-|cp|kopiert Dateien/Verzeichnisse|cp Quelldatei Zieldatei|
-|rm|löscht Dateien/Verzeichnisse|rm Zieldatei|
-mv|Benennt Datei um|mv altedatei neuedatei
-touch|Erstellt eine neue leere Datei| touch Dateiname
-cat|Gibt den Dateiinhalt aus|cat Zieldatei
-Datei-Inhaltes|wc -1 Zieldatei||
-wc|(word count) zählt Wörter oder Linien eines 
+|cp|kopiert Dateien/Verzeichnisse|cp \<Quelldatei> \<Zieldatei>|
+|rm|löscht Dateien/Verzeichnisse|rm \<Zieldatei>|
+mv|Benennt Datei um|mv \<altedatei> \<neuedatei>
+touch|Erstellt eine neue leere Datei| touch \<Dateiname>
+cat|Gibt den Dateiinhalt aus|cat \<Zieldatei>
+|wc|zählt wörter und Zeilen der datei(-l=Linien, -w=Wörter|wc -l \<Zieldatei>|
 echo|Gibt eine Zeichenkette aus|echo "Zeichenkette"
 
 ### Dateirelevante Befehle
