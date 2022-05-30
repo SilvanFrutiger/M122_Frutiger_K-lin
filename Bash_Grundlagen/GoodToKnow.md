@@ -28,6 +28,7 @@
 |mkdir|erstellt ein neues Verzeichnis|mkdir Verzeichnisname|
 |rmdir|löscht ein bestehendes Verzeichnis, das Verzeichnis muss Leer sein|rmdir Verzeichnisname|
 |ls|Listet den Verzeichnisinhalt auf|ls Verzeichnisname|
+|touch|neue Datei|touch Dateiname|
 
 ### Dateirelevante Befehle
 |Zeichen|Bedeutung|Beispiel|
