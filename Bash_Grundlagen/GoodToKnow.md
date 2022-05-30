@@ -130,4 +130,4 @@ $TZ 	Legt die Zeitzone fest (hierzulande MET = Middle European Time)
 |%|modulo(Ganzzhlrest von a/b)|mod=$((a%b))|
 |**|potenz|pot=$((a**b))|
 
-### Zeichenketten Verarbeitung$
+
