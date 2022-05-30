@@ -1,0 +1,6 @@
+sudo apt install openssh-server
+sudo ufw status
+sudo ufw allow ssh
+
+Wenn die neue VM die selbe IP Adresse hat, 
+muss man die IP Adresse aus der Known Hosts Datei löschen
