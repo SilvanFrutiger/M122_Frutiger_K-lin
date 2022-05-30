@@ -48,9 +48,12 @@ mv -r \<verzeichnisname> \<neuesverzeichnis>
 ---
 ### Kopieren Sie das Verzeichnis Files mitsamt Inhalt nach Files2/Files3
 
+mv -r \<files> \<files2>, \<files> \<files3> 
 
 ---
 ### Benennen Sie das Verzeichnis Files in Files1 um
+mv -r \<Files1> \<Files>
 
 ---
 ### Löschen Sie alle erstellten Verzeichnisse und Dateien wieder
+rm -r \<Verzeichnissname>
