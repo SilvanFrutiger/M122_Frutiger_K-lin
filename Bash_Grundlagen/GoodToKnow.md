@@ -63,3 +63,9 @@ echo|Gibt eine Zeichenkette aus|echo "Zeichenkette"
 |~Benutzername|Homeverzeichnis des Users||
 m~-|Zuvor besuchtes Verzeichnis||
 ~+|gibt den Pfad an|
+
+### Linux connection funktioniert nicht
+1. sudo apt install openssh-server
+2. sudo ufw status (falls der Port 21 aktiviert ist muss man Schritt 3. niht machen sondern erneut probieren zu verbinden)
+3. sudo ufw allow ssh     
+4. ssh Benutzername@IP-Adresse
