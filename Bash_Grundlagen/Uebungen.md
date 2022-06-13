@@ -144,3 +144,12 @@ id >> info.txt
 cat info-txt | wc -w
 
 ## Aufgabe 1
+### Aufgabe 1.1 Erzeugt Benutzer anhand einer Liste von Benutzernamen in einer Textdatei (via Parameter angegebenen). Hinweis: Benutzen Sie useradd und cat.
+Datei erstellen mit dem code 
+#!/bin/bash
+for user in $(cat tst.txt); do useradd $user; done
+
+sudo ./Datei.sh nameliste
+
+cat /etc/passwd, das zeigt alle user an
+
