@@ -41,6 +41,26 @@ touch|Erstellt eine neue leere Datei| touch \<Dateiname>
 cat|Gibt den Dateiinhalt aus|cat \<Zieldatei>
 |wc|zählt wörter und Zeilen der datei(-l=Linien, -w=Wörter|wc -l \<Zieldatei>|
 echo|Gibt eine Zeichenkette aus|echo "Zeichenkette"
+nano|bearbeiten einer Datei|nano \<Dateiname>
+
+
+### Ausgabe umleiten
+|Zeichen|Bedeutung|Beispiel|
+---|---|---|
+\>|überschreibt die Daten|ls -la > liste.txt
+\>>|hängt Inhalt an bestehende Datei an|cat outputofscript.txt >> list.txt
+2>|leitet Fehlermeldung in die Datei|Befehl 2> \<Dateiname>
+1>|leitet den Output in die Datei|Befehl 1> \<Dateiname>
+2>>|hängt die Fehlermeldung an der Datei an|Befehl 2>> \<Dateiname>
+\<<| fangt eine interaktive Eingaben an bis Schlüssel wort geschrieben wird|sort << fertig
+
+### Pipeline
+|Zeichen|Bedeutung|Beispiel|
+---|---|---|
+grep|durchsuchen nach etwas|cat \<Dateiname> \| grep gesuchte
+grep uniq sort|sortiert und filtert|cat \<Dateiname> \| grep gesuchte \| uniq \| sort
+'Zeichen'|wenn man viele Zeichen hat kann man mit diese stelle ainzeigen lassen| cat \<Dateiname> \| cut -d ’Zeichen’ -f Stelle
+
 
 ### Dateirelevante Befehle
 |Zeichen|Bedeutung|Beispiel|
@@ -130,4 +150,54 @@ $TZ 	Legt die Zeitzone fest (hierzulande MET = Middle European Time)
 |%|modulo(Ganzzhlrest von a/b)|mod=$((a%b))|
 |**|potenz|pot=$((a**b))|
 
+## Teil 3 Rechte und Benutzerverwaltung
+### Zugriffsrechte
 
+Es werden drei "Benutzerkreise" für Dateien / Verzeichnisse unterschieden: Eigentümer (Owner), Gruppe (group) und die Anderen (others).
+
+
+Das erste bestimmt den Typen des Verzeichniseintrages. Es gibt normale Dateien (-), Verzeichnisse (d), Devices files (b und c), und noch ein paar Typen mehr.
+
+
+Die Zeichen (Bits) für die Zugriffe sind: r - Read, w - Write, x - eXecute.
+
+
+Drei Zeichengruppen zu je drei Zeichen kennzeichnen die Zugriffsrechte für die Datei bzw. das Verzeichnis. Hat der Benutzer/Gruppe/andere ein Recht, so wird der Buchstabe dafür angezeigt; ansonsten wird ein - dafür angezeigt.
+
+Der Befehl chown wechselt den Eigentümer einer Datei oder eines Verzichnisses.
+
+Der Befehl chmod wechselt die Zugriffsrechte einer Datei oder eines Verzichnisses.
+
+### Befehle für Benutzer und Gruppen
+Der Befehl whoami zeigt den aktuellen Benutzernamen an
+
+
+Der Befehl who zeigt alle am System angemeldeten Benutzer an
+
+
+Der Befehl groups zeigt die Gruppen des aktuellen Benutzernamen an
+
+
+Der Befehl id zeigt die Nutzerid und Gruppen des aktuellen
+Benutzers an
+
+
+Der Befehl su wechselt den aktuellen Benutzer 
+Syntax: su - \<User> 
+( - sorgt dafür, dass wie beim Login alle Login-Skripte (.bashrc, .profile,...) durchlaufen werden und dass ins Heimverzeichnis des neuen Users gewechselt wird. Ohne - wird nur die User-Id gewechselt.)
+
+### Userspezifische Befehle
+Der Befehl useradd fügt einen neuen Benutzer hinzu 
+Syntax: useradd \<User>
+
+
+Der Befehl userdel löscht einen bestehenden Benutzer 
+Syntax: userdel \<User>
+
+
+Der Befehl passwd kann (unter anderem) das Passwort wechseln 
+Syntax: passwd \<User>
+
+
+Der Befehl logout loggt den aktuellen Benutzer vom System aus
+(ebenso exit)
