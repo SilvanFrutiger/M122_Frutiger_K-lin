@@ -15,44 +15,48 @@
 
 ### Erzeugen Sie ein Verzeichnis Docs in ihrem Heimverzeichnis
 
-touch
+- touch
+- mkdir ~/Docs
 
 ---
 ### Erstellen Sie die Dateien file1 bis file10 mit touch im Docs Verzeichnis
 - touch file{1..10}.txt
+- touch ~/Docs/file{1..10}
 
 ---
 ### Löschen Sie alle Dateien, welche einer 1 im Dateinamen haben
 - rm \*1*
+- rm -f ~/Docs/file1*
 
 ---
 ### Löschen Sie file2, file4, file7 mit einem Befehl
 - rm file{2, 4, 7}
+- rm -f ~/Docs/file[247]
 
 ---
 ### Löschen Sie alle restlichen Dateien auf einmal
-- rm -r ./docs
+- rm -f ~/Docs/* oder rm -f ~/Docs/file*
 ---
 ### Erzeugen Sie ein Verzeichnis Files in ihrem Heimverzeichnis
 - mkdir "Verzeichnisname"
-- touch dateiname
+- cd Files
 
 ---
 ### Erstellen Sie die Dateien file1 bis file10 mit touch im Files Verzeichnis
-- touch file{1..10}
+- touch file{1..10} (Erzeugt fileX von 1 bis 10)
 
 ---
 ### Kopieren Sie das Verzeichnis Files mitsamt Inhalt nach Files2
-mv -r \<verzeichnisname> \<neuesverzeichnis>
+- cd .. , cp -R Files Files2
 
 ---
 ### Kopieren Sie das Verzeichnis Files mitsamt Inhalt nach Files2/Files3
 
-mv -r \<files> \<files2>, \<files> \<files3> 
+- cp -R Files Files2/Files3 
 
 ---
 ### Benennen Sie das Verzeichnis Files in Files1 um
-mv -r \<Files1> \<Files>
+- mv Files Files1
 
 ---
 ### Löschen Sie alle erstellten Verzeichnisse und Dateien wieder
