@@ -145,6 +145,10 @@ cat info-txt | wc -w
 
 ## Aufgabe 1
 ### Aufgabe 1.1 Erzeugt Benutzer anhand einer Liste von Benutzernamen in einer Textdatei (via Parameter angegebenen). Hinweis: Benutzen Sie useradd und cat.
+
+Der Dateiname, welcher die Benutzernamen beinhaltet, wird mit $1
+übergeben: z.B. "benutzer.txt"
+
 Datei erstellen mit dem code 
 #!/bin/bash
 for user in $(cat tst.txt); do useradd $user; done
@@ -153,3 +157,85 @@ sudo ./Datei.sh nameliste
 
 cat /etc/passwd, das zeigt alle user an
 
+### Aufgabe 1.2 Fügt einen Benutzer anhand einer Liste von Gruppen in einer Textdatei (via Parameter angegebenen) den jeweiligen Gruppen hinzu. Hinweis: Benutzen Sie groupadd, usermod und cat. Achtung es gibt für jeden Benutzer jeweils eine Initial login group und mehrere Supplementary groups.
+
+Der Dateiname, welcher die Gruppen beinhaltet, wird mit dem ersten Parameter $1 übergeben,
+der Benutzernamen mit den zweiten Parameter $2.
+
+#!/bin/bash
+	for group in $(cat DateiGruppe); do
+	    groupadd -f $group | usermod -a -G $group $DateiName #$2 ist username
+	done
+
+[user@host ~]$ [sudo] ./aufg2.sh gruppen.txt 'benutzer'
+
+[user@host ~]$ cat /etc/passwd
+[user@host ~]$ id 'benutzer'
+
+### Augabe 1.3 Findet alle Dateien, welche einem (via Parameter angegebenen) Benutzer gehören und kopiert diese an den aktuellen Ort. Die kopierten Dateien werden zu einem tar.gz Archiv zusammengefasst und danach gelöscht. Die Archivdatei wird mit dem Benutzernamen und dem aktuellen Datum benannt. Hinweis: Benutzen Sie find, tar, rm und date.
+
+Der Benutzername wird mit $1 übergeben. (Verzeichnis user anpassen)
+
+#!/bin/bash
+name=$1_$(date '+%y-%m-%d').tar.gz;
+find /home/user/* -user $1 -exec cp {} /home/user/Docs/found/ \;
+tar -zcvf /home/user/Docs/found/$name /home/user/Docs/found/;
+find /home/user/Docs/found/ -type f ! -name $name -delete;
+
+### Aufgabe 1.4 Ermittelt die eigene IP-Adresse und macht einen PING-Sweep für das Subnetz der eigenen IP. Gibt aus, welche Hosts up sind und speichert die IP-Adressen der Hosts in einer Textdatei. Hinweis: Benutzen Sie ping (oder fping), ifconfig und grep.
+
+Das Tool fping muss installiert sein ([user@host ~]$ [sudo] apt-get install fping).
+
+    #!/bin/bash
+    for i in $( ifconfig | grep "inet" | grep -v "127.0.0.1" | cut -d ":" -f 2 | cut -d "." -f 1-3 ); do
+        for k in $(seq 1 255); do
+            fping -c 1 -t250 $i.$k 2>&1 |  grep " 0% " | cut -d " " -f 1 >ips.txt
+        done
+    done
+
+    #alternative Lösung:
+    fping -g -c 1 -t250 172.16.6.0/24 2>&1 | grep " 0% " | cut -d " " -f 1 ips.txt
+
+### Aufgabe 2.1 Erstellen Sie einen Ordner /root/trash und erzeugen Sie einige Dateien darin. Erstellen Sie ein Skript, welches alle 5 Minuten die Dateien innerhalb von diesem Ordner löscht (für Infos siehe auch Link 3 im Anhang). Überprüfen Sie, ob ihr Skript korrekt eingerichtet ist, indem Sie nachsehen, ob die Files nach 5 Minuten gelöscht wurden.
+
+    [root@host: ~]# [sudo] mkdir /root/trash
+    [root@host: ~]# [sudo] touch /root/trash/file{1..10}
+    [root@host: ~]# [sudo] nano /root/trash.sh
+    
+    
+     #!/bin/bash
+     rm /root/trash/*
+    
+    
+    [root@host: ]# [sudo] chmod +x trash.sh
+    [root@host: ]# [sudo] crontab -e
+    
+     */5 * * * * /root/trash.sh
+    
+    [root@host: ]# watch ls /root/trash  
+    
+    (Warten bis files verschwinden --erfolgreiche Ausführung)
+
+### Aufgabe 2.2 Erstellen Sie ein Skript, mit welchem eine IP-Adressrange bannen oder unbannen können. Es gibt unterschiedliche Tools, womit Sie diese Funktionalität umsetzen können. Verwenden Sie das Internet zur Informationssuche.
+
+IP wird als $1 übergeben, ban oder unban als $2.
+
+    #!/bin/bash
+    if [ $2 = "ban" ]; then
+        echo "banning " $1
+        iptables -A INPUT -s $1 -j DROP
+    elif [ $2 = "unban" ];then
+        echo "unbanning " $1
+        iptables -D INPUT -s $1 DROP
+    else
+        echo "Verwendung:"
+        echo "1.Arg: IP-Adresse" 
+        echo "2.Arg.: ban oder unban"  
+        echo "Beispiel: ./ban.sh 192.168.13.3 ban"
+    fi
+
+
+
+### Aufgabe 2.3 Erstellen Sie folgende Benutzer und Gruppen. Benutzen Sie zur Automatisierung die Skripte aus den Übungen. Versuchen Sie den Prozess der Erstellung möglichst stark zu automatisieren:
+
+### Aufgabe 2.4 Erstellen Sie folgende Ordnerstruktur und setzen Sie die abgebildeten Berechtigungen (Auf den Berechtigungen ist auch das SGID-Bit (s) und Sticky-Bit (T) abgebildet. Setzen Sie auch dieses. Sie finden eine Erklärung und Anleitung im zweiten Link zuunterst:
