@@ -239,3 +239,16 @@ IP wird als $1 übergeben, ban oder unban als $2.
 ### Aufgabe 2.3 Erstellen Sie folgende Benutzer und Gruppen. Benutzen Sie zur Automatisierung die Skripte aus den Übungen. Versuchen Sie den Prozess der Erstellung möglichst stark zu automatisieren:
 
 ### Aufgabe 2.4 Erstellen Sie folgende Ordnerstruktur und setzen Sie die abgebildeten Berechtigungen (Auf den Berechtigungen ist auch das SGID-Bit (s) und Sticky-Bit (T) abgebildet. Setzen Sie auch dieses. Sie finden eine Erklärung und Anleitung im zweiten Link zuunterst:
+
+Setzen des SGID Bits (3 verschiedene Varianten):
+
+    [user@host: ~]$ chmod g+s  /data/myFile 
+    [user@host: ~]$ chmod +s   /data/myFile
+    [user@host: ~]$ chmod 2755 /data/myFile
+
+
+Setzen des Sticky Bits (3 verschiedene Varianten):
+
+    [user@host: ~]$ chmod o+t  /data 
+    [user@host: ~]$ chmod +t   /data
+    [user@host: ~]$ chmod 1755 /data
