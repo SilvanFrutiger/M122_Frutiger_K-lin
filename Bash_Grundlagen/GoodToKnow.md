@@ -108,7 +108,7 @@ $1 - $9, ${10}, ... ,  $* Parameter des aufgerufenen Shellscripts
 
 $# Anzahl Parameter des aufgerufenen Shellscripts
 
-$$ Die Prozessnummer des aufgerufenen Shellscripts
+\$$ Die Prozessnummer des aufgerufenen Shellscripts
 
 $? Der Beendigungsstatus eines Shellscripts
 
