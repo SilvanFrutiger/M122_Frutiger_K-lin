@@ -108,7 +108,7 @@ $1 - $9, ${10}, ... ,  $* Parameter des aufgerufenen Shellscripts
 
 $# Anzahl Parameter des aufgerufenen Shellscripts
 
-\ $$ Die Prozessnummer des aufgerufenen Shellscripts
+$$ Die Prozessnummer des aufgerufenen Shellscripts
 
 $? Der Beendigungsstatus eines Shellscripts
 
@@ -148,7 +148,7 @@ $TZ 	Legt die Zeitzone fest (hierzulande MET = Middle European Time)
 |*|Multiplikation|multi=$((a*b))|
 |/|Division(Ganzzahl)|div=$((a/b))|
 |%|modulo(Ganzzhlrest von a/b)|mod=$((a%b))|
-|**|potenz|pot=$((a**b))|
+|\**|potenz|pot=$((a**b))|
 
 ## Teil 3 Rechte und Benutzerverwaltung
 ### Zugriffsrechte
